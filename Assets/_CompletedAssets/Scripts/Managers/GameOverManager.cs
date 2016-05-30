@@ -1,0 +1,31 @@
+﻿using UnityEngine;
+
+namespace CompleteProject
+{
+    public class GameOverManager : MonoBehaviour
+    {
+        public PlayerHealth playerHealth;       // Reference to the player health script.
+
+
+        Animator anim;                          // Reference to the animator component.
+
+
+        void Awake ()
+        {
+            // Set up the reference.
+            anim = GetComponent <Animator> ();
+        }
+
+
+        void Update ()
+        {
+            // If the player has run out of health...
+			//script name.public variable to access it
+            if(playerHealth.currentHealth <= 0)
+            {
+                // ... tell the animator the game is over.
+                anim.SetTrigger ("GameIsOver");
+            }
+        }
+    }
+}
